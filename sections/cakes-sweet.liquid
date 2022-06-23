@@ -1,0 +1,64 @@
+<div>
+  <h1 style="font-size: {{ section.settings.heading_size }}">{{ section.settings.title }}</h1>
+  <div>
+    {{ section.settings.description }}
+    {% for product in collections['all'].products %}
+      <ul>
+        <div>
+          <span>Images</span>
+          {% for image in product.images %}
+            <img src="{{image | img_url: 'medium'}}" alt="">
+          {% endfor %}
+        </div>
+        <li>
+          <a href="">{{ product.title }}</a>
+        </li>
+      </ul>
+    {% endfor %}
+    <div>
+        <h1>sample image picker</h1>
+        <img src="{{ section.settings.image | img_url: 'medium' }}" alt="">
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Cake and Sweat",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Choose Heading For Collection"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "35px",
+          "label": "h2"
+        }
+      ]
+    },
+    {
+     "type":"url", 
+     "id":"button_link", 
+     "label":"button link"
+    },
+    {
+    "type":"image_picker",
+    "id":"image",
+    "label":"sample image picker"
+
+}
+  ],
+  "presets": [
+    {
+      "name": "Cake and Sweet"
+    }
+  ]
+}
+{% endschema %}

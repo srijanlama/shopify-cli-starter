@@ -11,7 +11,6 @@
 <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
 
-
 {%- style -%}
 .section-{{ section.id }}-padding {
 padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -46,19 +45,8 @@ assign show_desktop_slider = true
 endif
 -%}
 
+<h1>{{ section.settings.collection.all_products_count }}</h1>
 <div class="color-{{ section.settings.color_scheme }} isolate gradient">
-  <div class="custom-products">
-    <h2>Featured Products</h2>
-    <ul>
-      {% for product in section.settings.collection.products %}
-      <li>
-        {{ product.title }}
-        <span>Created At {{ product.created_at }}</span>
-      </li>
-      {% endfor %}
-    </ul>
-
-  </div>
   <div
     class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
     <div
